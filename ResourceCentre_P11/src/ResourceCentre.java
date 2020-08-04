@@ -129,16 +129,17 @@ public class ResourceCentre {
 
 	//================================= Option 1 View =================================
 	public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
-		String output = "";
+        String output = "";
+        for (int i = 0; i < camcorderList.size(); i++) {
 
-		for (int i = 0; i < camcorderList.size(); i++) {
-
-			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", camcorderList.get(i).getAssetTag(),
-					camcorderList.get(i).getDescription(), 
-					ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable()),
-					camcorderList.get(i).getDueDate(),camcorderList.get(i).getOpticalZoom());
-		}
-		return output;
+            String theFormat = "%-10s %-30s %-10s %-10s %-20d\n";
+            output += String.format(theFormat, camcorderList.get(i).getAssetTag(),
+                    camcorderList.get(i).getDescription(), 
+                    ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable()),
+                    camcorderList.get(i).getDueDate(),camcorderList.get(i).getOpticalZoom());
+        }
+        return output;
+    }
 	}
 	public static void viewAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.setHeader("CAMCORDER LIST");

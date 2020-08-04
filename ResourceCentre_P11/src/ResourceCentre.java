@@ -140,10 +140,7 @@ public class ResourceCentre {
 	public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		String output = "";
 		for (int i = 0; i < camcorderList.size(); i++) {
-			output += String.format(theFormat, camcorderList.get(i).getAssetTag(),
-					camcorderList.get(i).getDescription(),
-					ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable()),
-					camcorderList.get(i).getDueDate(), camcorderList.get(i).getOpticalZoom());
+			output += String.format("%-84s\n", camcorderList.get(i).toString());
 		}
 		return output;
 	}

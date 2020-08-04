@@ -7,6 +7,8 @@ public class ResourceCentre {
 	private static final int Option_Loan = 3;
 	private static final int Option_AddItems = 2;
 	private static final int Option_AllItems = 1;
+	private static final String theFormat = "%-10s %-30s %-10s %-10s %-20d\n";
+	private static final String theOtherFormat = "%-10s %-30s %-10s %-10s %-20s\n";
 
 	public static void main(String[] args) {
 
@@ -138,7 +140,6 @@ public class ResourceCentre {
 	public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		String output = "";
 		for (int i = 0; i < camcorderList.size(); i++) {
-			String theFormat = "%-10s %-30s %-10s %-10s %-20d\n";
 			output += String.format(theFormat, camcorderList.get(i).getAssetTag(),
 					camcorderList.get(i).getDescription(),
 					ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable()),
@@ -149,8 +150,7 @@ public class ResourceCentre {
 
 	public static void viewAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.setHeader("CAMCORDER LIST");
-		String theFormat = "%-10s %-30s %-10s %-10s %-20s\n";
-		String output = String.format(theFormat, "ASSET TAG", "DESCRIPTION", "AVAILABLE", "DUE DATE", "OPTICAL ZOOM");
+		String output = String.format(theOtherFormat, "ASSET TAG", "DESCRIPTION", "AVAILABLE", "DUE DATE", "OPTICAL ZOOM");
 		output += retrieveAllCamcorder(camcorderList);
 		System.out.println(output);
 	}
@@ -159,9 +159,7 @@ public class ResourceCentre {
 		String output = "";
 		// write your code here
 		for (int i = 0; i < chromebookList.size(); i++) {
-
-			String theFormat = "%-10s %-30s %-10s %-10s %-20s\n";
-			output += String.format(theFormat, chromebookList.get(i).getAssetTag(),
+			output += String.format(theOtherFormat, chromebookList.get(i).getAssetTag(),
 					chromebookList.get(i).getDescription(),
 					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
 					chromebookList.get(i).getDueDate(), chromebookList.get(i).getOs());
@@ -172,8 +170,7 @@ public class ResourceCentre {
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
 
 		ResourceCentre.setHeader("CHROMEBOOK LIST");
-		String theFormat = "%-10s %-30s %-10s %-10s %-20s\n";
-		String output = String.format(theFormat, "ASSET TAG", "DESCRIPTION", "AVAILABLE", "DUE DATE",
+		String output = String.format(theOtherFormat, "ASSET TAG", "DESCRIPTION", "AVAILABLE", "DUE DATE",
 				"OPERATING SYSTEM");
 		output += retrieveAllChromebook(chromebookList);
 		System.out.println(output);

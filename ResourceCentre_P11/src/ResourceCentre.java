@@ -254,7 +254,6 @@ public class ResourceCentre {
 			}
 		}
 		return isLoaned;
-		//mmhmm
 	}
 
 	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
